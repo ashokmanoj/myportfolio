@@ -20,31 +20,31 @@ const MobileNavbar = ({ showMenu, setShowMenu }) => {
             showMenu ? null : "translate-x-[-450px]"
           } transition-all duration-1000`}
         >
-          <div className='p-3 bg-gray-200 dark:bg-gray-800 flex justify-between items-center gap-3'>
+          <div className='flex items-center justify-between gap-3 p-3 bg-gray-200 dark:bg-gray-800'>
             {/* Name Logo */}
             <div className='flex items-center gap-2'>
               <div className='text-white w-8 h-8 bg-[#c72c6c] dark:bg-[#07d0e5] rounded-full flex justify-center items-center'>
                 S
               </div>
-              <p className='text-gray-400 flex'>
-                <span className='text-lg font-bold'>SHIV</span> <DiTechcrunch />
+              <p className='flex text-gray-400'>
+                <span className='text-lg font-bold'>MANOJ</span> <DiTechcrunch />
               </p>
             </div>
 
             {/* Sidebar Close button */}
             <button
-              className='text-black dark:text-white text-3xl font-bold'
+              className='text-3xl font-bold text-black dark:text-white'
               onClick={() => setShowMenu(!showMenu)}
             >
               <IoMdClose />
             </button>
           </div>
 
-          <div className='p-2 flex flex-col gap-2'>
+          <div className='flex flex-col gap-2 p-2'>
             {/* Navbar Links */}
             {NavbarMenu.map((navbar) => (
               <Link
-                className='text-lg p-2 bg-gray-200 hover:bg-gray-300 dark:bg-gray-600 dark:hover:bg-gray-700 rounded'
+                className='p-2 text-lg bg-gray-200 rounded hover:bg-gray-300 dark:bg-gray-600 dark:hover:bg-gray-700'
                 href={navbar.link}
                 key={navbar.name}
               >

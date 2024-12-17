@@ -48,10 +48,10 @@ const Navbar = () => {
         style={{ top: top }}
       >
         {/* Name Logo */}
-        <p className='text-gray-400 flex'>
-          <span className='text-lg font-bold'>SHIV</span> <DiTechcrunch />
+        <p className='flex text-gray-400'>
+          <span className='text-lg font-bold'>MANOJ</span> <DiTechcrunch />
         </p>
-        <div className='h-full flex gap-4'>
+        <div className='flex h-full gap-4'>
           {/* Navbar Links */}
           {NavbarMenu.map((navbar) => (
             <Link

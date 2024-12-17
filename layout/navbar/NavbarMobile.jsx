@@ -14,15 +14,15 @@ const NavbarMobile = ({ setShowMenu, setThemeFun, theme, showMenu, top }) => {
       <div className='flex items-center gap-4'>
         {/* Open Sidebar Button */}
         <button
-          className='text-black dark:text-white text-3xl font-semibold'
+          className='text-3xl font-semibold text-black dark:text-white'
           onClick={() => setShowMenu(!showMenu)}
         >
           <GiHamburgerMenu />
         </button>
 
         {/* Name Logo */}
-        <p className='text-gray-400 flex'>
-          <span className='text-lg font-bold'>SHIV</span> <DiTechcrunch />
+        <p className='flex text-gray-400'>
+          <span className='text-lg font-bold'>MANOJ</span> <DiTechcrunch />
         </p>
       </div>
 
