@@ -2,25 +2,25 @@ export const EducationData = [
     {
         name: "Bachelor of Science",
         image:
-            "http://res.cloudinary.com/dhixp5pnk/image/upload/v1696219056/edekjqivqlnsyg8pfmxw.png",
-        schoolOrCollege: "GOVERNMENT COLLEGE, KOTA",
+            "/images/my_degree_clg.jpeg",
+        schoolOrCollege: "Government Science College, Hassan",
         fromTo: "2021 - 2022",
-        statusOrPrecentage: "Dropped in second year",
+        statusOrPrecentage: "6.24 CGPA",
     },
     {
-        name: "Senior Secondary Examination",
+        name: "Pre-University ",
         image:
-            "http://res.cloudinary.com/dhixp5pnk/image/upload/v1696219649/jkjfvdlxjntnyrxs57ia.png",
-        schoolOrCollege: "SWAMI TEONRAM ALOK SR. SEC. SCHOOL DADABARI, KOTA",
+            "/images/pu_clg.jpeg",
+        schoolOrCollege: "Government Boys College, Hassan",
         fromTo: "2021",
-        statusOrPrecentage: "96.80 %",
+        statusOrPrecentage: "54.70 %",
     },
     {
         name: "Secondary Examination",
         image:
-            "http://res.cloudinary.com/dhixp5pnk/image/upload/v1696219649/tnverjapfr4slg7fnfcw.png",
-        schoolOrCollege: "A.V.M. SECONDARY SCHOOL, RAWATBHATA",
+            "/images/pu_clg.jpeg",
+        schoolOrCollege: "Government Boys high school, Hassan",
         fromTo: "2019",
-        statusOrPrecentage: "93.33%",
+        statusOrPrecentage: "81 %",
     },
 ];

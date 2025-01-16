@@ -45,11 +45,11 @@ const About = () => {
   return (
     <Fragment>
       <section
-        className=' shadow-zinc-300 dark:shadow-zinc-700 shadow-sm overflow-x-hidden'
+        className='overflow-x-hidden shadow-sm shadow-zinc-300 dark:shadow-zinc-700'
         id='about'
         ref={aboutRef}
       >
-        <h2 className='text-3xl font-bold text-center pt-4 pb-8 flex justify-center items-center gap-3'>
+        <h2 className='flex items-center justify-center gap-3 pt-4 pb-8 text-3xl font-bold text-center'>
           <FaUserCheck /> About me
         </h2>
         <div className='pb-[30px] px-[20px] md:px-[100px] lg:px-[200px] md:flex gap-[50px]'>
@@ -61,7 +61,7 @@ const About = () => {
             }
             height={350}
             ref={profile2Ref}
-            src='http://res.cloudinary.com/dqfrtazgi/image/upload/v1696181689/wt7sys9ubcvc41v6clq8.jpg'
+            src='/images/myprofile_photo.jpg'
             width={350}
           />
           <div
@@ -70,16 +70,16 @@ const About = () => {
           >
             {/* Full Name */}
             <p className='text-3xl text-center md:text-left font-semibold text-[#c72c6c] dark:text-[#07d0e5]'>
-              Shivraj Gurjar
+              Manoj.H.A
             </p>
             {/* Profil Name */}
-            <p className='text-center md:text-left text-red-600 mt-1'>
+            <p className='mt-1 text-center text-red-600 md:text-left'>
               Ful stack web developer
             </p>
             {/* Location */}
-            <div className='flex flex-wrap justify-center md:justify-normal gap-5'>
-              <div className='w-fit px-4 py-2 mt-5 border border-gray-400 rounded flex flex-col items-center gap-2'>
-                <div className='flex gap-3 items-center'>
+            <div className='flex flex-wrap justify-center gap-5 md:justify-normal'>
+              <div className='flex flex-col items-center gap-2 px-4 py-2 mt-5 border border-gray-400 rounded w-fit'>
+                <div className='flex items-center gap-3'>
                   <p className='text-center md:text-left text-[#c72c6c] dark:text-[#07d0e5]'>
                     Location
                   </p>
@@ -88,12 +88,12 @@ const About = () => {
                   </p>
                 </div>
                 <p className='text-center md:text-left text-[#0b0c0c] dark:text-[#07d0e5]'>
-                  Kota Rajasthan India{" "}
+                  Hassan, Karnataka{" "}
                 </p>
               </div>
               {/* Age */}
-              <div className='w-fit px-4 py-2 mt-5 border border-gray-400 rounded flex flex-col items-center gap-2'>
-                <div className='flex gap-3 items-center'>
+              <div className='flex flex-col items-center gap-2 px-4 py-2 mt-5 border border-gray-400 rounded w-fit'>
+                <div className='flex items-center gap-3'>
                   <p className='text-center md:text-left text-[#c72c6c] dark:text-[#07d0e5]'>
                     Age
                   </p>
@@ -102,12 +102,12 @@ const About = () => {
                   </p>
                 </div>
                 <p className='text-center md:text-left text-[#c72c6c] dark:text-[#07d0e5]'>
-                  20{" "}
+                  23{" "}
                 </p>
               </div>
               {/* Experience */}
-              <div className='w-fit px-4 py-2 mt-5 border border-gray-400 rounded flex flex-col items-center gap-2'>
-                <div className='flex gap-3 items-center'>
+              <div className='flex flex-col items-center gap-2 px-4 py-2 mt-5 border border-gray-400 rounded w-fit'>
+                <div className='flex items-center gap-3'>
                   <p className='text-center md:text-left text-[#c72c6c] dark:text-[#07d0e5]'>
                     Experience
                   </p>
@@ -116,12 +116,12 @@ const About = () => {
                   </p>
                 </div>
                 <p className='text-center md:text-left text-[#c72c6c] dark:text-[#07d0e5]'>
-                  1 Year{" "}
+                  Fresher{" "}
                 </p>
               </div>
               {/* Project */}
-              <div className='w-fit px-4 py-2 mt-5 border border-gray-400 rounded flex flex-col items-center gap-2'>
-                <div className='flex gap-3 items-center'>
+              <div className='flex flex-col items-center gap-2 px-4 py-2 mt-5 border border-gray-400 rounded w-fit'>
+                <div className='flex items-center gap-3'>
                   <p className='text-center md:text-left text-[#c72c6c] dark:text-[#07d0e5]'>
                     Projects
                   </p>
@@ -135,7 +135,7 @@ const About = () => {
               </div>
             </div>
 
-            <div className='mt-5 justify-evenly text-justify'>
+            <div className='mt-5 text-justify justify-evenly'>
               <p className='text-gray-600 dark:text-gray-300'>
                 Passionate and driven ReactJS developer with a strong foundation
                 in MERN Stack and NextJS. Dedicated to creating dynamic and

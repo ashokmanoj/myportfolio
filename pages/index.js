@@ -23,9 +23,9 @@ const Home = () => {
   return (
     <Fragment>
       <Head>
-        <title>Manoj Portfolio</title>
+        <title>Manoj's Portfolio</title>
         {/* <!-- Primary Meta Tags --> */}
-        <meta content="Manoj Portfolio" name="title" />
+        <meta content="Manoj's Portfolio" name="title" />
         <meta content="Explore the best Next.js and React.js portfolio by Manoj. Featuring simple, dark and light theme designs and mobile responsiveness." name="description" />
 
         {/* <!-- Open Graph / Facebook --> */}

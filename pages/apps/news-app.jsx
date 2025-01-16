@@ -6,7 +6,7 @@ import { AiOutlineMenu } from "react-icons/ai";
 import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
 
 import Theme from "@/utils/Theme";
-import { savedArticles } from "@/constants/NewsData";
+import savedArticles from '@/constants/NewsData';
 import BackTo from "@/components/buttons/BackTo";
 
 const NewsApp = () => {
@@ -75,7 +75,7 @@ const NewsApp = () => {
         <BackTo backTo={""} />
 
         <div className="dark:bg-gray-900 min-h-[92vh]">
-          <div className="text-3xl font-bold text-center pt-5 flex items-center justify-center gap-8">
+          <div className="flex items-center justify-center gap-8 pt-5 text-3xl font-bold text-center">
             News App
             <button
               className="p-3 dark:bg-[#0ab0c2] bg-[#c72c6c] text-white font-extrabold rounded-full w-10 h-10 flex items-center justify-center"
@@ -142,11 +142,11 @@ const Filters = ({
 
   return (
     <div
-      className="flex justify-center flex-wrap w-fit m-auto gap-4 mt-4"
+      className="flex flex-wrap justify-center gap-4 m-auto mt-4 w-fit"
       style={filter ? {} : { display: "none" }}
     >
       <select
-        className="dark:bg-black border border-solid dark:border-white border-black rounded"
+        className="border border-black border-solid rounded dark:bg-black dark:border-white"
         id="language"
         name="language"
         onChange={(e) => setLanguage(e.target.value)}
@@ -163,7 +163,7 @@ const Filters = ({
       </select>
 
       <select
-        className="dark:bg-black border border-solid dark:border-white border-black rounded"
+        className="border border-black border-solid rounded dark:bg-black dark:border-white"
         id="country"
         name="country"
         onChange={(e) => setCountry(e.target.value)}
@@ -180,7 +180,7 @@ const Filters = ({
       </select>
 
       <select
-        className="dark:bg-black border border-solid dark:border-white border-black rounded"
+        className="border border-black border-solid rounded dark:bg-black dark:border-white"
         id="category"
         name="category"
         onChange={(e) => setCategory(e.target.value)}
@@ -237,10 +237,10 @@ const MyMasonry = ({ loading, articles }) => {
 
               return (
                 <div
-                  className="border border-solid dark:border-white border-black rounded-md cursor-pointer m-3 mb-5"
+                  className="m-3 mb-5 border border-black border-solid rounded-md cursor-pointer dark:border-white"
                   key={key}
                 >
-                  <p className="font-medium font-serif text-center p-3 text-lg">
+                  <p className="p-3 font-serif text-lg font-medium text-center">
                     {news.title}
                   </p>
 
@@ -262,17 +262,18 @@ const MyMasonry = ({ loading, articles }) => {
                     {news.description}
                   </div>
 
-                  <p className="px-3 pb-2 text-center text-xs">
+                  <p className="px-3 pb-2 text-xs text-center">
                     {formattedDate}
                   </p>
                 </div>
               );
             })
           ) : (
-            <p className="text-center p-3">...Loading</p>
+            <p className="p-3 text-center">...Loading</p>
           )}
         </Masonry>
       </ResponsiveMasonry>
     </div>
   );
 };
+
