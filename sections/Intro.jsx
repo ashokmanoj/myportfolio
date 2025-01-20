@@ -47,35 +47,35 @@ const Intro = () => {
       </Head>
       <section id='home'>
         <div
-          className='min-h-[100vh] overflow-x-hidden px-[20px] md:px-[200px] lg:px-[200px] pt-[80px] md:pt-0 md:flex items-center justify-between shadow-zinc-300 dark:shadow-zinc-700 shadow-sm'
+          className='min-h-[100vh] overflow-x-hidden px-[20px] md:px-[110px] lg:px-[110px] pt-[60px] md:pt-0 md:flex items-center justify-between shadow-zinc-300 dark:shadow-zinc-700 shadow-sm'
           ref={homeRef}
         >
           <div
             className='translate-x-[-500px] transition-all duration-700 opacity-0'
             ref={introRef}
           >
-            <p className='py-2 text-2xl md:text-4xl font-semibold font-sans'>
+            <p className='py-2 font-sans text-2xl font-semibold md:text-4xl'>
               Hi There !
             </p>
             {/* Profile Name */}
-            <p className='text-2xl md:text-4xl py-2 font-semibold font-sans'>
+            <p className='py-2 font-sans text-2xl font-semibold md:text-4xl'>
               I&apos;m a full stack
               <span className='text-[#c72c6c] dark:text-[#07d0e5]'>
                 {" "}
-                developer <span className='text-white'>|</span>
+                Developer <span className='text-white'>|</span>
               </span>
             </p>
-            <div className='mt-5 md:mt-10 flex gap-3'>
+            <div className='flex gap-3 mt-5 md:mt-10'>
               {/* Hire Me Button */}
               <Link
-                className='text-white text-xl font-semibold rounded bg-red-400 hover:bg-red-500 px-2 py-1'
+                className='px-2 py-1 text-xl font-semibold text-white bg-red-400 rounded hover:bg-red-500'
                 href={"#getInTouch"}
               >
                 Hire me
               </Link>
               {/* Download CV Button */}
               <Link
-                className='text-xl font-semibold rounded border border-red-500 hover:text-white hover:bg-red-500 px-2 py-1'
+                className='px-2 py-1 text-xl font-semibold border border-red-500 rounded hover:text-white hover:bg-red-500'
                 href='https://drive.google.com/file/d/1uk-tv12y8PK-WrE4oX2xRtmSy4PUVSsE/view'
                 target='_blank'
               >
@@ -87,10 +87,10 @@ const Intro = () => {
           {/* Image */}
           <div
             className={
-              "translate-x-[500px] transition-all opacity-0 duration-700 w-[180px] h-[300px] md:w-[240px] md:h-[400px] bg-cover m-auto md:m-0 mt-[40px] md:mt-0 bg-no-repeat"
+              "translate-x-[500px] transition-all opacity-0 duration-700 w-[240px] h-[380px] md:w-[500px] md:h-[350px] bg-cover m-auto md:m-0 mt-[30px] md:mt-0 bg-no-repeat border-2 border-[#07d0e5] border-radius: 0.375rem "
             }
             ref={profileRef}
-            style={{ backgroundImage: "url(/images/male.png)" }}
+            style={{ backgroundImage: "url(/images/homepage_image.png)" }}
           />
         </div>
       </section>
