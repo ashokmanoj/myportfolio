@@ -15,12 +15,12 @@ export const EducationData = [
         fromTo: "2021",
         statusOrPrecentage: "54.70 %",
     },
-    {
-        name: "Secondary Examination",
-        image:
-            "/images/pu_clg.jpeg",
-        schoolOrCollege: "Government Boys high school, Hassan",
-        fromTo: "2019",
-        statusOrPrecentage: "81 %",
-    },
+    // {
+    //     name: "Secondary Examination",
+    //     image:
+    //         "/images/pu_clg.jpeg",
+    //     schoolOrCollege: "Government Boys high school, Hassan",
+    //     fromTo: "2019",
+    //     statusOrPrecentage: "81 %",
+    // },
 ];

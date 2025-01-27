@@ -4,7 +4,7 @@ export const ProjectsData = [
         liveUrl: "https://myportfolio-lyart-rho.vercel.app/",
         githubUrl: "https://github.com/ashokmanoj/myportfolio",
         projectImage: {
-            imageUrl: "http://res.cloudinary.com/dqfrtazgi/image/upload/v1696218285/yn3naeznjfgszsbbjr92.png"
+            imageUrl: "/images/i3.png"
         },
         techs: ["NextJS", "TailwindCSS", "Redux Toolkit", "Cloudinary", "Intersection Objerver"]
     },
@@ -19,7 +19,7 @@ export const ProjectsData = [
     },
     {
         projectName: "Redux Toolkit ",
-        liveUrl: "/",
+        liveUrl: "https://github.com/ashokmanoj/redux_toolkit",
         githubUrl: "https://github.com/ashokmanoj/redux_toolkit",
         projectImage: {
             imageUrl: "/images/redux.jpeg"
