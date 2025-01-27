@@ -61,7 +61,7 @@ const About = () => {
             }
             height={350}
             ref={profile2Ref}
-            src='/images/myprofile_photo.jpg'
+            src='/images/myprofile_photo.png'
             width={350}
           />
           <div
