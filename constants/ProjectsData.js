@@ -6,7 +6,7 @@ export const ProjectsData = [
         projectImage: {
             imageUrl: "/images/i3.png"
         },
-        techs: ["NextJS", "TailwindCSS", "Redux Toolkit", "Cloudinary", "Intersection Objerver"]
+        techs: ["NextJS", "TailwindCSS", "Redux Toolkit", "ChakraUI"]
     },
     {
         projectName: "Job Pandit",
@@ -15,7 +15,7 @@ export const ProjectsData = [
         projectImage: {
             imageUrl: "/images/job_pandit.png"
         },
-        techs: ["ReactJS", "ContextAPI", "ChakraUI", "YoutubeAPI", "ContextAPI"]
+        techs: ["ReactJS", "ContextAPI", "NextJS", "Supabase"]
     },
     {
         projectName: "Redux Toolkit ",

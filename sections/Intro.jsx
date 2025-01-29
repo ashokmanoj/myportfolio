@@ -43,7 +43,7 @@ const Intro = () => {
   return (
     <Fragment>
       <Head>
-        <title>Shiv&apos;s Portfolio</title>
+        <title>Manoj&apos; Portfolio</title>
       </Head>
       <section id='home'>
         <div
@@ -76,7 +76,7 @@ const Intro = () => {
               {/* Download CV Button */}
               <Link
                 className='px-2 py-1 text-xl font-semibold border border-red-500 rounded hover:text-white hover:bg-red-500'
-                href='https://drive.google.com/file/d/1uk-tv12y8PK-WrE4oX2xRtmSy4PUVSsE/view'
+                href='https://drive.google.com/file/d/1mh9pvt8hL9GLbPWWC7cKdlR0PAsl1r5Y/view?usp=sharing'
                 target='_blank'
               >
                 Download CV
