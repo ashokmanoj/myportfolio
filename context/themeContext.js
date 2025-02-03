@@ -4,32 +4,36 @@ import React, { useState, createContext, useEffect } from "react";
 export const ThemeContext = createContext();
 
 const ThemeProvider = ({ children }) => {
-    const [theme, setTheme] = useState("dark");
+    const getInitialTheme = () => {
+        if (typeof window !== "undefined") {
+            return localStorage.getItem("myPortfolioProfileTheme") || "dark";
+        }
+        return "dark";
+    };
+
+    const [theme, setTheme] = useState(getInitialTheme);
 
     // Toggle Theme
     const setThemeFun = () => {
-        if (theme === "dark") {
-            setTheme("light");
-            localStorage.setItem("myPortfolioProfileTheme", "light");
-        } else {
-            setTheme("dark");
-            localStorage.setItem("myPortfolioProfileTheme", "dark");
-        }
+        const newTheme = theme === "dark" ? "light" : "dark";
+        setTheme(newTheme);
+        localStorage.setItem("myPortfolioProfileTheme", newTheme);
+        document.documentElement.classList.toggle("dark", newTheme === "dark");
     };
 
-    // Get Theme Value From LocalStorage
+    // Sync Theme on Mount
     useEffect(() => {
-        const getTheme = localStorage.getItem("myPortfolioProfileTheme");
-        if (!getTheme) {
-            return
+        const storedTheme = localStorage.getItem("myPortfolioProfileTheme");
+        if (storedTheme && storedTheme !== theme) {
+            setTheme(storedTheme);
+            document.documentElement.classList.toggle("dark", storedTheme === "dark");
         }
-        setTheme(getTheme);
     }, []);
 
     return (
         <ThemeContext.Provider value={{ theme, setThemeFun }}>
             <div className={theme === "dark" ? "dark" : ""}>
-                <div className='dark:text-white dark:bg-black'>{children}</div>
+                <div className="dark:text-white dark:bg-black">{children}</div>
             </div>
         </ThemeContext.Provider>
     );

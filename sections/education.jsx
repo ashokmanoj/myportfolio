@@ -37,11 +37,11 @@ const Education = () => {
   return (
     <Fragment>
       <section
-        className='shadow-zinc-300 dark:shadow-zinc-700 shadow-sm overflow-x-hidden'
+        className='overflow-x-hidden shadow-sm shadow-zinc-300 dark:shadow-zinc-700'
         id='education'
         ref={educationRef}
       >
-        <h2 className='text-3xl font-bold text-center p-4 flex justify-center items-center gap-3'>
+        <h2 className='flex items-center justify-center gap-3 p-4 text-3xl font-bold text-center'>
           <IoSchoolSharp /> Education
         </h2>
 
@@ -51,22 +51,26 @@ const Education = () => {
         >
           {EducationData.map((education) => (
             <div
-              className='transition-all duration-700 flex border border-zinc-300 dark:border-zinc-700 shadow-md shadow-zinc-300 dark:shadow-zinc-700 rounded gap-6'
+              className='flex gap-6 transition-all duration-700 border rounded shadow-md border-zinc-300 dark:border-zinc-700 shadow-zinc-300 dark:shadow-zinc-700'
               key={education.name}
             >
               <Image
                 alt={education.name}
-                className='hidden md:block bg-blue-400'
+                className='hidden bg-blue-400 md:block'
                 height={150}
                 src={education.image}
                 width={150}
+                style={{
+                  objectFit: "cover",
+                  
+                }}
               />
               <div className='flex flex-col gap-2 p-3 md:p-1'>
-                <p className='text-xl md:text-2xl font-bold text-red-600'>
+                <p className='text-xl font-bold text-red-600 md:text-2xl'>
                   {education.name}
                 </p>
                 <p>{education.schoolOrCollege}</p>
-                <p className=' text-blue-600'>
+                <p className='text-blue-600 '>
                   {education.fromTo} &nbsp; | &nbsp;{" "}
                   {education.statusOrPrecentage}
                 </p>
