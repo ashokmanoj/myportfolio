@@ -1,100 +1,90 @@
-import React, { Fragment, useState } from "react";
-import axios from "axios";
+import React, { useState } from "react";
+import emailjs from "@emailjs/browser";
 import { FiMessageCircle } from "react-icons/fi";
+import { motion } from "framer-motion";
 
 const SendMail = () => {
-  const [formData, setFormData] = useState({});
+  const [formData, setFormData] = useState({ name: "", email: "", subject: "", message: "" });
   const [sending, setSending] = useState(false);
+  const [error, setError] = useState("");
+  const [success, setSuccess] = useState("");
+
+  const SERVICE_ID = process.env.NEXT_PUBLIC_SERVICE_ID;
+  const TEMPLATE_ID = process.env.NEXT_PUBLIC_TEMPLATE_ID;
+  const PUBLIC_KEY = process.env.NEXT_PUBLIC_PUBLIC_KEY;
 
   const collectData = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
+  const validateEmail = (email) => {
+    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return re.test(String(email).toLowerCase());
+  };
+
   const sendMessage = (e) => {
     e.preventDefault();
+    setError("");
+    setSuccess("");
 
     const { name, email, message, subject } = formData;
 
-    if (!name || !email || !subject || !message) {
-      return alert("Please Fill All Data");
+    if (!validateEmail(email)) {
+      return setError("Please enter a valid email address");
+    } else if (!name) {
+      return setError("Please enter your name");
+    } else if (!message) {
+      return setError("Please enter your message");
+    } else if (!subject) {
+      return setError("Please enter your subject");
     }
 
     setSending(true);
-    axios
-      .post("/api/mail/new", formData)
-      .then((res) => {
-        console.log(res.data);
+    const templateParams = { from_name: name, from_email: email, to_name: "Manoj", subject, message };
+
+    emailjs.send(SERVICE_ID, TEMPLATE_ID, templateParams, PUBLIC_KEY)
+      .then(() => {
+        setSuccess("Message sent successfully");
         setSending(false);
-        alert("Message Sended Successfully");
-        setFormData({});
+        handleCancel();
       })
-      .catch((err) => {
-        console.log(err);
+      .catch(() => {
+        setError("Failed to send email");
         setSending(false);
-        alert(err);
       });
   };
 
+  const handleCancel = () => {
+    setFormData({ name: "", email: "", subject: "", message: "" });
+    setError("");
+    setSuccess("");
+  };
+
   return (
-    <Fragment>
-      <section id='getInTouch'>
-        <div className='py-8 pt-4 shadow-zinc-300 dark:shadow-zinc-700 shadow-sm'>
-          <h3 className='text-3xl font-bold text-center pb-8 flex justify-center items-center gap-3'>
-            <span className='mr-3'>
-              <FiMessageCircle />
-            </span>
-            Drop A Message
-          </h3>
+    <section id='getInTouch' className='bg-gray-900 text-white p-10 rounded-xl shadow-lg max-w-lg mx-auto mt-10'>
+      <h3 className='text-3xl font-bold text-center mb-6 flex justify-center items-center gap-3'>
+        <FiMessageCircle className='text-cyan-400 text-4xl' /> Drop A Message
+      </h3>
 
-          <form action='' onSubmit={sendMessage}>
-            <div className='flex flex-col gap-4 w-[90%] md:w-[35%] m-auto'>
-              <input
-                className='dark:bg-black border dark:border-[#07d0e5] border-[#c72c6c] p-2 rounded'
-                id='name'
-                name='name'
-                onChange={collectData}
-                placeholder='Your Good Name'
-                value={formData.name || ""}
-              />
-              <input
-                className='dark:bg-black border dark:border-[#07d0e5] border-[#c72c6c] p-2 rounded'
-                id='email'
-                name='email'
-                onChange={collectData}
-                placeholder='Your Email Address'
-                value={formData.email || ""}
-              />
-              <input
-                className='dark:bg-black border dark:border-[#07d0e5] border-[#c72c6c] p-2 rounded'
-                id='subject'
-                name='subject'
-                onChange={collectData}
-                placeholder='Subject for mail'
-                value={formData.subject || ""}
-              />
+      {error && <motion.p className='text-red-400 text-center mb-4' initial={{ opacity: 0 }} animate={{ opacity: 1 }}>{error}</motion.p>}
+      {success && <motion.p className='text-green-400 text-center mb-4' initial={{ opacity: 0 }} animate={{ opacity: 1 }}>{success}</motion.p>}
 
-              <textarea
-                className='dark:bg-black border dark:border-[#07d0e5] border-[#c72c6c] p-2 rounded'
-                id='message'
-                name='message'
-                onChange={collectData}
-                placeholder='Write Your Message'
-                rows='3'
-                value={formData.message || ""}
-              />
-
-              <button
-                className='font-bold text-white dark:bg-[#0ab0c2] disabled:cursor-default p-2 rounded dark:hover:bg-[#078795] bg-[#f91071] hover:bg-[#c72c6c]'
-                disabled={sending}
-                type='submit'
-              >
-                {sending ? "sending..." : "Send"}
-              </button>
-            </div>
-          </form>
+      <form onSubmit={sendMessage} className='space-y-4'>
+        <input className='w-full p-3 bg-gray-800 border border-cyan-400 rounded focus:outline-none focus:ring-2 focus:ring-cyan-300' name='name' onChange={collectData} placeholder='Your Good Name' value={formData.name} />
+        <input className='w-full p-3 bg-gray-800 border border-cyan-400 rounded focus:outline-none focus:ring-2 focus:ring-cyan-300' name='email' onChange={collectData} placeholder='Your Email Address' value={formData.email} />
+        <input className='w-full p-3 bg-gray-800 border border-cyan-400 rounded focus:outline-none focus:ring-2 focus:ring-cyan-300' name='subject' onChange={collectData} placeholder='Subject for mail' value={formData.subject} />
+        <textarea className='w-full p-3 bg-gray-800 border border-cyan-400 rounded focus:outline-none focus:ring-2 focus:ring-cyan-300' name='message' onChange={collectData} placeholder='Write Your Message' rows='4' value={formData.message} />
+        
+        <div className='flex gap-3 justify-center'>
+          <button className='bg-cyan-500 hover:bg-cyan-600 text-white font-bold py-2 px-6 rounded disabled:bg-gray-500' disabled={sending} type='submit'>
+            {sending ? "Sending..." : "Send"}
+          </button>
+          <button className='bg-gray-600 hover:bg-gray-500 text-white font-bold py-2 px-6 rounded' type='button' onClick={handleCancel}>
+            Cancel
+          </button>
         </div>
-      </section>
-    </Fragment>
+      </form>
+    </section>
   );
 };
 

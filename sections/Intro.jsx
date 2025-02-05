@@ -2,6 +2,7 @@
 import React, { Fragment, useEffect, useRef, useState } from "react";
 import Head from "next/head";
 import Link from "next/link";
+import { motion } from "framer-motion";
 
 const Intro = () => {
   const [isHome, setIsHome] = useState(false);
@@ -10,14 +11,12 @@ const Intro = () => {
   const introRef = useRef();
   const profileRef = useRef();
 
-  // Intersection observer animation on scroll
   useEffect(() => {
     const getScreenWidth = () =>
       window.innerWidth ||
       document.documentElement.clientWidth ||
       document.body.clientWidth;
 
-    // Scroll Animation
     if (homeRef.current) {
       const homeObserver = new IntersectionObserver(
         ([homeEntry]) => {
@@ -43,56 +42,54 @@ const Intro = () => {
   return (
     <Fragment>
       <Head>
-        <title>Manoj&apos; Portfolio</title>
+        <title>Manoj&apos;s Portfolio</title>
       </Head>
-      <section id='home'>
-        <div
-          className='min-h-[100vh] overflow-x-hidden px-[20px] md:px-[110px] lg:px-[110px] pt-[60px] md:pt-0 md:flex items-center justify-between shadow-zinc-300 dark:shadow-zinc-700 shadow-sm'
+      <section id='home' className='relative min-h-screen flex items-center justify-center px-6 md:px-16 lg:px-24'>
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
           ref={homeRef}
+          className='relative flex flex-col-reverse md:flex-row items-center justify-between w-full max-w-6xl p-6 md:p-12 bg-white/30 dark:bg-black/30 backdrop-blur-md rounded-xl shadow-lg border border-white/20'
         >
-          <div
-            className='translate-x-[-500px] transition-all duration-700 opacity-0'
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            className='text-center md:text-left'
             ref={introRef}
           >
-            <p className='py-2 font-sans text-2xl font-semibold md:text-4xl'>
-              Hi There !
-            </p>
-            {/* Profile Name */}
-            <p className='py-2 font-sans text-2xl font-semibold md:text-4xl'>
+            <p className='text-lg md:text-2xl font-semibold text-gray-900 dark:text-gray-100'>Hi There !</p>
+            <p className='text-2xl md:text-4xl font-bold text-gray-900 dark:text-white'>
               I&apos;m a full stack
-              <span className='text-[#c72c6c] dark:text-[#07d0e5]'>
-                {" "}
-                Developer <span className='text-white'>|</span>
-              </span>
+              <span className='text-[#c72c6c] dark:text-[#07d0e5]'> Developer |</span>
             </p>
-            <div className='flex gap-3 mt-5 md:mt-10'>
-              {/* Hire Me Button */}
+            <div className='flex justify-center md:justify-start gap-4 mt-6'>
               <Link
-                className='px-2 py-1 text-xl font-semibold text-white bg-red-400 rounded hover:bg-red-500'
-                href={"#getInTouch"}
+                className='px-4 py-2 text-lg font-semibold text-white bg-gradient-to-r from-red-500 to-pink-500 rounded-lg shadow-lg hover:scale-105 transition'
+                href={'#getInTouch'}
               >
                 Hire me
               </Link>
-              {/* Download CV Button */}
               <Link
-                className='px-2 py-1 text-xl font-semibold border border-red-500 rounded hover:text-white hover:bg-red-500'
+                className='px-4 py-2 text-lg font-semibold border border-red-400 rounded-lg text-gray-900 dark:text-white hover:bg-red-500 transition'
                 href='https://drive.google.com/file/d/1mh9pvt8hL9GLbPWWC7cKdlR0PAsl1r5Y/view?usp=sharing'
                 target='_blank'
               >
                 Download CV
               </Link>
             </div>
-          </div>
+          </motion.div>
 
-          {/* Image */}
-          <div
-            className={
-              "translate-x-[500px] transition-all opacity-0 duration-700 w-[240px] h-[380px] md:w-[500px] md:h-[350px] bg-cover m-auto md:m-0 mt-[30px] md:mt-0 bg-no-repeat border-2 border-[#07d0e5] border-radius: 0.375rem "
-            }
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            className='w-[240px] h-[380px] md:w-[400px] md:h-[450px] rounded-xl overflow-hidden shadow-lg border-2 border-[#07d0e5] bg-cover bg-no-repeat flex items-center justify-center'
             ref={profileRef}
-            style={{ backgroundImage: "url(/images/homepage_image.png)" }}
+            style={{ backgroundImage: "url(/images/homepage_image.png)", backgroundPosition: "center" }}
           />
-        </div>
+        </motion.div>
       </section>
     </Fragment>
   );
