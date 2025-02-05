@@ -56,7 +56,7 @@ const Intro = () => {
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className='text-center md:text-left'
+            className='text-center md:text-left mb-6 md:mb-0'
             ref={introRef}
           >
             <p className='text-lg sm:text-xl md:text-2xl font-semibold text-gray-900 dark:text-gray-100'>Hi There !</p>
@@ -85,7 +85,7 @@ const Intro = () => {
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className='w-[200px] h-[300px] sm:w-[240px] sm:h-[380px] md:w-[400px] md:h-[450px] rounded-xl overflow-hidden shadow-lg border-2 border-[#07d0e5] bg-cover bg-no-repeat flex items-center justify-center'
+            className='w-[200px] h-[300px] sm:w-[240px] sm:h-[380px] md:w-[400px] md:h-[450px] rounded-xl overflow-hidden shadow-lg border-2 border-[#07d0e5] bg-cover bg-no-repeat flex items-center justify-center mb-6 md:mb-0'
             ref={profileRef}
             style={{ backgroundImage: "url(/images/homepage_image.png)", backgroundPosition: "center" }}
           />
