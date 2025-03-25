@@ -31,7 +31,7 @@ const About = () => {
       </h2>
 
       {/* Content */}
-      <div className="flex flex-col items-center gap-10 mt-10 md:flex-row">
+      <div className="flex flex-col justify-center gap-10 mt-10  md:flex-row">
         {/* Profile Image */}
         <Image
           ref={profileRef}
@@ -39,9 +39,12 @@ const About = () => {
           src="/images/myprofile_photo.png"
           width={350}
           height={350}
-          className={`shadow-xl rounded-lg object-cover transition-all duration-700 ${
-            isAboutVisible ? "opacity-100 scale-100" : "opacity-0 scale-90"
+          className={`shadow-xl mt-30 rounded-lg object-cover transition-all duration-700 ${
+            isAboutVisible ? "opacity-100 scale-100" : "opacity-0 scale-90" 
           }`}
+          style={{ filter: isAboutVisible ? "none" : "blur(5px)",
+          WebkitFilter: isAboutVisible ? "none" : "blur(5px)", height: "350px",
+        justifyContent: "center", marginTop: "130px" }}
         />
 
         {/* Info Section */}
@@ -51,10 +54,10 @@ const About = () => {
             isAboutVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
           } max-w-2xl text-center md:text-left`}
         >
-          <p className="text-4xl font-bold text-[#c72c6c] dark:text-[#07d0e5]">
+          <p className="text-4xl font-bold text-[#c72c6c] dark:text-[#07d0e5] flex items-center justify-center">
             Manoj.H.A
           </p>
-          <p className="mt-2 text-lg font-semibold text-red-500">Full Stack Developer</p>
+          <p className="mt-2 text-lg font-semibold text-red-500 flex items-center justify-center">Full Stack Developer</p>
 
           {/* Details Grid */}
           <div className="grid grid-cols-2 gap-5 mt-5">
