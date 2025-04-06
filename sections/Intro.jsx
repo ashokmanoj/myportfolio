@@ -44,7 +44,7 @@ const Intro = () => {
       <Head>
         <title>Manoj&apos;s Portfolio</title>
       </Head>
-      <section id='home' className='relative min-h-screen flex flex-col items-center justify-center px-4 sm:px-8 md:px-16 lg:px-24'>
+      <section id='home' className='relative min-h-screen flex flex-col items-center justify-center px-4 sm:px-8 md:px-16 lg:px-24 dark:shadow-gray-900'>
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
@@ -90,6 +90,9 @@ const Intro = () => {
             style={{ backgroundImage: "url(/images/homepage_image.png)", backgroundPosition: "center" }}
           />
         </motion.div>
+              {/* Fade Shadow at bottom of section */}
+      <div className="absolute bottom-0 left-0 w-full h-12 bg-gradient-to-t from-zinc-300 dark:from-zinc-900 to-transparent pointer-events-none" />
+
       </section>
     </Fragment>
   );

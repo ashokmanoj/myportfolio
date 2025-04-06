@@ -1,85 +1,78 @@
 "use client";
-import React, { Fragment, useRef, useState, useEffect } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { IoSchoolSharp } from "react-icons/io5";
-
 import { EducationData } from "@/constants/EducationData";
 
 const Education = () => {
-  const [isEducation, setIsEducation] = useState(false);
-  const educationRef = useRef();
-  const educationBoxesRef = useRef();
+  const sectionRef = useRef(null);
+  const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    const getScreenWidth = () =>
-      window.innerWidth ||
-      document.documentElement.clientWidth ||
-      document.body.clientWidth;
-
-    const educationObserver = new IntersectionObserver(
-      ([educationEntry]) => {
-        setIsEducation(educationEntry.isIntersecting);
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsVisible(entry.isIntersecting);
       },
       {
-        rootMargin: `${getScreenWidth() <= 700 ? "-100px" : "-300px"}`,
+        threshold: 0.2,
       }
     );
 
-    educationObserver.observe(educationRef.current);
-
-    if (isEducation) {
-      educationBoxesRef.current.classList.add("pop-up-child");
-    } else {
-      educationBoxesRef.current.classList.remove("pop-up-child");
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
     }
-  }, [isEducation]);
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, []);
 
   return (
-    <Fragment>
-      <section
-        className='overflow-x-hidden shadow-sm shadow-zinc-300 dark:shadow-zinc-700'
-        id='education'
-        ref={educationRef}
-      >
-        <h2 className='flex items-center justify-center gap-3 p-4 text-3xl font-bold text-center'>
-          <IoSchoolSharp /> Education
-        </h2>
+    <section
+      ref={sectionRef}
+      id="education"
+      className="py-16 px-6 sm:px-10 md:px-20 lg:px-40  dark:bg-zinc-900"
+    >
+      <h2 className="flex items-center justify-center gap-3 text-4xl font-bold text-center text-zinc-800 dark:text-zinc-100 mb-12">
+        <IoSchoolSharp className="text-blue-500" />
+        Education
+      </h2>
 
-        <div
-          className='pop-down-child pb-[30px] px-[20px] md:px-[100px] lg:px-[200px] flex flex-col gap-[20px] md:gap-[50px]'
-          ref={educationBoxesRef}
-        >
-          {EducationData.map((education) => (
-            <div
-              className='flex gap-6 transition-all duration-700 border rounded shadow-md border-zinc-300 dark:border-zinc-700 shadow-zinc-300 dark:shadow-zinc-700'
-              key={education.name}
-            >
+      <div
+        className={`grid grid-cols-1 sm:grid-cols-2 gap-6 transition-all duration-700 ${
+          isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+        }`}
+      >
+        {EducationData.map((edu) => (
+          <div
+            key={edu.name}
+            className="flex flex-col md:flex-row bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 rounded-2xl shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden"
+          >
+            <div className="relative w-full md:w-48 h-48 md:h-auto">
               <Image
-                alt={education.name}
-                className='hidden bg-blue-400 md:block'
-                height={150}
-                src={education.image}
-                width={150}
-                style={{
-                  objectFit: "cover",
-                  
-                }}
+                src={edu.image}
+                alt={edu.name}
+                fill
+                className="object-cover w-full h-full"
               />
-              <div className='flex flex-col gap-2 p-3 md:p-1'>
-                <p className='text-xl font-bold text-red-600 md:text-2xl'>
-                  {education.name}
-                </p>
-                <p>{education.schoolOrCollege}</p>
-                <p className='text-blue-600 '>
-                  {education.fromTo} &nbsp; | &nbsp;{" "}
-                  {education.statusOrPrecentage}
-                </p>
-              </div>
             </div>
-          ))}
-        </div>
-      </section>
-    </Fragment>
+            <div className="flex flex-col justify-center p-4 gap-2">
+              <h3 className="text-xl font-semibold text-red-600 dark:text-red-400">
+                {edu.name}
+              </h3>
+              <p className="text-zinc-700 dark:text-zinc-300">
+                {edu.schoolOrCollege}
+              </p>
+              <p className="text-sm text-blue-600 dark:text-blue-400">
+                {edu.fromTo} &nbsp; | &nbsp; {edu.statusOrPrecentage}
+              </p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
   );
 };
 
