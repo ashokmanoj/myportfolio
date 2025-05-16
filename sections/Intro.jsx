@@ -61,7 +61,7 @@ const Intro = () => {
           >
             <p className='text-lg sm:text-xl md:text-2xl font-semibold text-gray-900 dark:text-gray-100'>Hi There !</p>
             <p className='text-xl sm:text-2xl md:text-4xl font-bold text-gray-900 dark:text-white'>
-              I&apos;m a full stack
+              I&apos;m a Junior software
               <span className='text-[#c72c6c] dark:text-[#07d0e5]'> Developer |</span>
             </p>
             <div className='flex flex-col items-center sm:flex-row justify-center md:justify-start gap-3 mt-6'>

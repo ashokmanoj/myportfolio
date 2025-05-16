@@ -5,6 +5,7 @@ import dynamic from "next/dynamic";
 import ShoveeModal from "@/utils/ShoveeModal";
 import About from "@/sections/about";
 import Education from "@/sections/education";
+import Experience from "@/sections/experience";
 // import Experience from "@/sections/experience";
 const Navbar = dynamic(() => import("@/layout/navbar/Navbar"))
 const Footer = dynamic(() => import("@/layout/footer/Footer"))
@@ -63,8 +64,8 @@ const Home = () => {
           <Skills />
           {/* Education */}
           <Education />
-          {/* Experience
-          <Experience /> */}
+          {/* Experience */}
+          <Experience />
           {/* Projects */}
           <Projects />
           {/* SocialMedia */}

@@ -57,14 +57,14 @@ const About = () => {
           <p className="text-4xl font-bold text-[#c72c6c] dark:text-[#07d0e5] flex items-center justify-center">
             Manoj.H.A
           </p>
-          <p className="mt-2 text-lg font-semibold text-red-500 flex items-center justify-center">Full Stack Developer</p>
+          <p className="mt-2 text-lg font-semibold text-red-500 flex items-center justify-center">Junior Software Developer</p>
 
           {/* Details Grid */}
           <div className="grid grid-cols-2 gap-5 mt-5">
             {[
               { title: "Location", value: "Hassan, Karnataka", icon: <ImLocation /> },
               { title: "Age", value: "23", icon: <IoPerson /> },
-              { title: "Experience", value: "Fresher", icon: <FaBlackTie /> },
+              { title: "Experience", value: "1 Year Experience", icon: <FaBlackTie /> },
               { title: "Projects", value: "3", icon: <BsMenuAppFill /> },
             ].map((item, index) => (
               <div

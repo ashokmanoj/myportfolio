@@ -18,11 +18,11 @@ export const ProjectsData = [
         techs: ["ReactJS", "ContextAPI", "NextJS", "Supabase"]
     },
     {
-        projectName: "Redux Toolkit ",
-        liveUrl: "https://github.com/ashokmanoj/redux_toolkit",
-        githubUrl: "https://github.com/ashokmanoj/redux_toolkit",
+        projectName: "Women Safety",
+        liveUrl: "https://women-sefety.vercel.app/",
+        githubUrl: "https://github.com/ashokmanoj/women_sefety",
         projectImage: {
-            imageUrl: "/images/redux.jpeg"
+            imageUrl: "/images/womensefety.png"
         },
         techs: ["ReactJS", "NodeJS",  "Redux Toolkit"]
     }
