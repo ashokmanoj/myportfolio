@@ -23,6 +23,7 @@ const About = () => {
   return (
     <section
       ref={aboutRef}
+      id="about"
       className="p-10 overflow-hidden text-gray-800 rounded-lg shadow-lg bg-natural dark:bg-black dark:text-white shadow-gray-300 dark:shadow-gray-900"
     >
       {/* Header */}

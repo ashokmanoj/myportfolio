@@ -37,6 +37,7 @@ const TechStack = () => {
   return (
     <section
       ref={techStackRef}
+      id="techStack"
       className="p-10 overflow-hidden text-gray-900 transition-all rounded-lg shadow-lg bg-neutral dark:bg-gray-900 dark:text-white shadow-gray-300 dark:shadow-gray-900"
     >
       {/* Title */}
