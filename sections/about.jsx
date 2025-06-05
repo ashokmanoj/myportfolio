@@ -65,7 +65,7 @@ const About = () => {
             {[
               { title: "Location", value: "Hassan, Karnataka", icon: <ImLocation /> },
               { title: "Age", value: "23", icon: <IoPerson /> },
-              { title: "Experience", value: "1 Year Experience", icon: <FaBlackTie /> },
+              { title: "Experience", value: "1 Year 11 Months Experience", icon: <FaBlackTie /> },
               { title: "Projects", value: "3", icon: <BsMenuAppFill /> },
             ].map((item, index) => (
               <div
