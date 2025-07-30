@@ -4,8 +4,8 @@ export const EducationData = [
         image:
             "/images/mca.jpeg",
         schoolOrCollege: "Jain University, Bangalore",
-        fromTo: "2023",
-        statusOrPrecentage: "Currently Pursuing",
+        fromTo: "2023 - 2025",
+        statusOrPrecentage: "8.3 CGPA",
     },
     {
         name: "Bachelor of Science",

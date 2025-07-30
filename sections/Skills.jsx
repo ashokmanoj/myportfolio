@@ -1,6 +1,7 @@
 "use client";
 import React, { useState, useEffect, useRef } from "react";
 import { FaLaptopCode } from "react-icons/fa";
+
 import { TechStackData } from "@/constants/SkillsData";
 
 const TechStack = () => {
@@ -36,9 +37,9 @@ const TechStack = () => {
 
   return (
     <section
-      ref={techStackRef}
-      id="techStack"
       className="p-10 overflow-hidden text-gray-900 transition-all rounded-lg shadow-lg bg-neutral dark:bg-gray-900 dark:text-white shadow-gray-300 dark:shadow-gray-900"
+      id="techStack"
+      ref={techStackRef}
     >
       {/* Title */}
       <h2 className="flex items-center justify-center gap-3 text-4xl font-bold text-[#c72c6c] dark:text-[#07d0e5]">
@@ -48,17 +49,17 @@ const TechStack = () => {
 
       {/* Section Buttons */}
       <div
-        ref={buttonsRef}
         className="flex justify-center gap-4 mt-6"
+        ref={buttonsRef}
       >
         {["Advance", "Good", "Familiar"].map((level) => (
           <button
-            key={level}
             className={`w-32 md:w-40 py-2 rounded-lg font-semibold transition-all duration-300 ${
               section === level
                 ? "bg-[#c72c6c] text-white shadow-md"
                 : "bg-gray-200 dark:bg-gray-800 hover:bg-gray-300 dark:hover:bg-gray-700 text-gray-800 dark:text-white"
             }`}
+            key={level}
             onClick={() => {
               setSection(level);
               techBoxesRef.current?.classList.remove("opacity-100", "translate-y-0");
@@ -71,13 +72,13 @@ const TechStack = () => {
 
       {/* Tech Stack Display */}
       <div
+        className={"grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-5 mt-8 p-5 opacity-0 translate-y-5 transition-all duration-700"}
         ref={techBoxesRef}
-        className={`grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-5 mt-8 p-5 opacity-0 translate-y-5 transition-all duration-700`}
       >
         {sectionData.map((tech) => (
           <div
-            key={tech.name}
             className="flex flex-col items-center justify-center p-4 transition-transform duration-300 bg-white border rounded-lg shadow-md dark:bg-gray-800 hover:scale-105"
+            key={tech.name}
           >
             <p className="text-4xl">{tech.icon}</p>
             <p className="mt-2 text-lg font-semibold">{tech.name}</p>

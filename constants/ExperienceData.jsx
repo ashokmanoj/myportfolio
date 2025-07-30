@@ -3,7 +3,7 @@ export const ExperienceData = [
     companyName: "Rankbook Learning and software solutions Pvt. Ltd",
     location: "Hassan, Karnataka",
     role: "JUNIOR SOFTWARE DEVELOPER",
-    fromTo: "July 2023 - Present",
+    fromTo: "July 2023 - July 2025",
     description:
       "At RankBook Learning, I contributed to the development of web applications, leveraging JavaScript and HTML to improve app functionality and significantly enhance website performance. Skilled in React.js and efficient time management, I specialise in delivering responsive, user-friendly web solutions. My experience includes developing customized content management systems (CMS) and integrating APIs seamlessly, showcasing a balance of technical expertise and practical application.",
     side: "left",
