@@ -6,6 +6,9 @@ import ShoveeModal from "@/utils/ShoveeModal";
 import About from "@/sections/about";
 import Education from "@/sections/education";
 import Experience from "@/sections/experience";
+import BackTo from "@/components/buttons/BackTo";
+import BackToTop from "@/utils/BackToTop";
+import SelfIntroVideo from "@/sections/SelfIntroVedio";
 // import Experience from "@/sections/experience";
 const Navbar = dynamic(() => import("@/layout/navbar/Navbar"))
 const Footer = dynamic(() => import("@/layout/footer/Footer"))
@@ -24,7 +27,7 @@ const Home = () => {
   return (
     <Fragment>
       <Head>
-        <title>Manoj's Portfolio</title>
+        <title>Manoj Portfolio</title>
         {/* <!-- Primary Meta Tags --> */}
         <meta content="Manoj's Portfolio" name="title" />
         <meta content="Explore the best Next.js and React.js portfolio by Manoj. Featuring simple, dark and light theme designs and mobile responsiveness." name="description" />
@@ -58,6 +61,8 @@ const Home = () => {
           <Navbar />
           {/* Welcome Page */}
           <Intro />
+          {/* Self intro video */}
+          <SelfIntroVideo />
           {/* About */}
           <About />
           {/* Skills  */}
@@ -79,6 +84,9 @@ const Home = () => {
           <SendMail />
           {/* Footer */}
           <Footer />
+          {/* Move to Top */}
+          <BackToTop />
+          {/* <BackTo backTo="" /> */}
           <div className="z-40">
             {/* tawk.to Chat System */}
             <ChatSystem />
