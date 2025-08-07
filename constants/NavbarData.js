@@ -22,6 +22,11 @@ export const NavbarData = [
         icon: <CgClapperBoard />
     },
     {
+        name: "Certificates",
+        link: "#certificates",
+        icon: <CgClapperBoard />
+    },
+    {
         name: "Blogs",
         link: "#blogs",
         icon: <BsPenFill />

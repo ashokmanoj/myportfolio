@@ -9,6 +9,7 @@ import Experience from "@/sections/experience";
 import BackTo from "@/components/buttons/BackTo";
 import BackToTop from "@/utils/BackToTop";
 import SelfIntroVideo from "@/sections/SelfIntroVedio";
+// import CertificateSection from "@/sections/CertificateSection";
 // import Experience from "@/sections/experience";
 const Navbar = dynamic(() => import("@/layout/navbar/Navbar"))
 const Footer = dynamic(() => import("@/layout/footer/Footer"))
@@ -21,6 +22,8 @@ const SendMail = dynamic(() => import("@/utils/SendMail"))
 const SocialMedia = dynamic(() => import("@/utils/SocialMedia"))
 const ChatSystem = dynamic(() => import("@/utils/ChatSystem"))
 const Feedback = dynamic(() => import("@/utils/Feedback"))
+const CertificateSection = dynamic(() => import("@/sections/CertificateSection")); 
+
 
 const Home = () => {
 
@@ -73,6 +76,8 @@ const Home = () => {
           <Experience />
           {/* Projects */}
           <Projects />
+          {/*Certificates */}
+          <CertificateSection />
           {/* SocialMedia */}
           <SocialMedia />
 
