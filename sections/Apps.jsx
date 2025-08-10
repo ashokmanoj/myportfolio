@@ -7,7 +7,7 @@ import { AppsData } from "@/constants";
 import { ThemeContext } from "@/context/themeContext";
 
 const Apps = () => {
-  const { theme } = useContext(ThemeContext);
+  // const { theme } = useContext(ThemeContext);
 
   return (
     <Fragment>
@@ -29,7 +29,7 @@ const Apps = () => {
                   alt='app'
                   className='object-cover rounded md:rounded-[30px] w-full'
                   height={500}
-                  src={theme === "dark" ? app.imageUrl : app.imageLight}
+                  src={ThemeContext.theme === "dark" ? app.imageUrl : app.imageLight}
                   width={250}
                 />
               </Link>

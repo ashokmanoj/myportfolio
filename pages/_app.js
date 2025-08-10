@@ -1,29 +1,24 @@
-import "@/styles/globals.css"
-import "@/styles/animation.css"
-import "@/styles/cssGrid.css"
-import "@/styles/Home.module.css"
-import { Analytics } from "@vercel/analytics/react"
+// pages/_app.js
+import "@/styles/globals.css";
+import { ThemeProvider } from "next-themes";
+import { useEffect } from "react";
 import ReactGA from "react-ga4";
 
-import { PortfolioProvider } from "@/contextApi/PortfolioContext"
-import ThemeProvider from "@/context/themeContext"
-import { Suspense } from "react"
-import Loading from "./loading"
-
-ReactGA.initialize(process.env.NEXT_PUBLIC_MEASUREMENT_ID);
+import { PortfolioProvider } from "@/contextApi/PortfolioContext"; // named import
 
 
 export default function App({ Component, pageProps }) {
+  useEffect(() => {
+    if (typeof window !== "undefined" && process.env.NEXT_PUBLIC_MEASUREMENT_ID) {
+      ReactGA.initialize(process.env.NEXT_PUBLIC_MEASUREMENT_ID);
+    }
+  }, []);
 
   return (
     <PortfolioProvider>
-      <ThemeProvider>
-        <Suspense fallback={<Loading />}>
+      <ThemeProvider attribute="class" defaultTheme="light" enableSystem >
         <Component {...pageProps} />
-        </Suspense>
-        <Analytics />
       </ThemeProvider>
     </PortfolioProvider>
-    
-  )
+  );
 }

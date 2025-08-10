@@ -1,42 +1,36 @@
 "use client";
-import React, { useState, createContext, useEffect } from "react";
+import React, { createContext, useState, useEffect } from "react";
 
 export const ThemeContext = createContext();
 
-const ThemeProvider = ({ children }) => {
-    const getInitialTheme = () => {
-        if (typeof window !== "undefined") {
-            return localStorage.getItem("myPortfolioProfileTheme") || "dark";
-        }
-        return "dark";
-    };
+export const ThemeProvider = ({ children }) => {
+  const [theme, setTheme] = useState("light");
 
-    const [theme, setTheme] = useState(getInitialTheme);
+  // Load saved theme from localStorage on mount
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const savedTheme = localStorage.getItem("theme");
+      if (savedTheme) {
+        setTheme(savedTheme);
+      }
+    }
+  }, []);
 
-    // Toggle Theme
-    const setThemeFun = () => {
-        const newTheme = theme === "dark" ? "light" : "dark";
-        setTheme(newTheme);
-        localStorage.setItem("myPortfolioProfileTheme", newTheme);
-        document.documentElement.classList.toggle("dark", newTheme === "dark");
-    };
+  // Save theme to localStorage and update DOM
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      localStorage.setItem("theme", theme);
+      document.documentElement.classList.toggle("dark", theme === "dark");
+    }
+  }, [theme]);
 
-    // Sync Theme on Mount
-    useEffect(() => {
-        const storedTheme = localStorage.getItem("myPortfolioProfileTheme");
-        if (storedTheme && storedTheme !== theme) {
-            setTheme(storedTheme);
-            document.documentElement.classList.toggle("dark", storedTheme === "dark");
-        }
-    }, []);
+  const setThemeFun = (newTheme) => {
+    setTheme(newTheme);
+  };
 
-    return (
-        <ThemeContext.Provider value={{ theme, setThemeFun }}>
-            <div className={theme === "dark" ? "dark" : ""}>
-                <div className="dark:text-white dark:bg-black">{children}</div>
-            </div>
-        </ThemeContext.Provider>
-    );
+  return (
+    <ThemeContext.Provider value={{ theme, setThemeFun }}>
+      {children}
+    </ThemeContext.Provider>
+  );
 };
-
-export default ThemeProvider;
