@@ -1,4 +1,4 @@
-// contextApi/PortfolioContext.jsx
+"use client";
 import React, { useState, useEffect, createContext } from "react";
 
 export const PortfolioContext = createContext();
