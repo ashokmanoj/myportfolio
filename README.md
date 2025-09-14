@@ -23,3 +23,11 @@ Styling: Tailwind CSS / Styled Components / CSS Modules
 Deployment: Vercel / Netlify
 
 Other Tools: ESLint, Prettier.
+
+## Apps
+
+1) Tic-tok_toi
+
+2) Quiz App
+
+3) Hindi Translater
