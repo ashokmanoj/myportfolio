@@ -31,3 +31,5 @@ Other Tools: ESLint, Prettier.
 2) Quiz App
 
 3) Hindi Translater
+
+4) i need to make this project for iphone & andriod
