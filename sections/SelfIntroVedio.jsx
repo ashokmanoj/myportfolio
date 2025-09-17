@@ -18,7 +18,7 @@ const SelfIntroVideo = () => {
             allowFullScreen
             className="w-full h-full"
             frameBorder="0"
-            src="https://www.youtube.com/embed/dQw4w9WgXcQ" // Replace with your actual video URL or embed ID
+            src="www.linkedin.com/in/manoj-manu" // Replace with your actual video URL or embed ID
             title="Self Intro Video"
            />
         </div>

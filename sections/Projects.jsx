@@ -6,6 +6,7 @@ import { HiExternalLink } from "react-icons/hi";
 import { BsGithub } from "react-icons/bs";
 
 import { ProjectsData } from "@/constants";
+import { Button } from "@/components/ui/button";
 
 const Project = () => {
   const [height1, setHeight1] = useState("");
@@ -122,7 +123,11 @@ const Project = () => {
             </div>
           ))}
         </div>
+        <Button className='flex mx-auto mt-4' variant='outline'>
+        <Link href='https://github.com/ashokmanoj'>See More</Link>
+      </Button>
       </section>
+      
     </Fragment>
   );
 };
