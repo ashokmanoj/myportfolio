@@ -28,10 +28,12 @@ const CertificateSection = () => {
                 className="rounded-t-lg"
                 priority={index === 0}
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                // ✅ replaces layout="fill"src={cert.imageUrl} // preload first image
+                // ✅ replaces layout="fill" // preload first image
                 style={{ objectFit: "cover" }} // ✅ replaces objectFit="cover"
                 // eslint-disable-next-line react/jsx-sort-props
                 fill
+                // eslint-disable-next-line react/jsx-sort-props
+                src={cert.imageUrl}
               />
             </div>
             <div className="p-4">
