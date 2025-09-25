@@ -35,4 +35,7 @@ Other Tools: ESLint, Prettier.
 4) i need to make this project for iphone & andriod
 
 
-web link : https://myportfolio-lyart-rho.vercel.app/
+MyPortfolio link : https://myportfolio-lyart-rho.vercel.app/
+
+
+If anyone intrested developer are there just contact with email {email : manojc6363530865@gmail.com}
