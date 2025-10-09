@@ -18,7 +18,7 @@ export const SocialMediaData = [
   {
     icon: <FaLinkedinIn />,
     color: "#0072b1",
-    link: "www.linkedin.com/in/manoj-manu",
+    link: "https://linkedin.com/in/manoj-manu",
   },
   {
     icon: <BsGithub />,
