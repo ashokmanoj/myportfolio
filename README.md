@@ -39,5 +39,3 @@ MyPortfolio link : https://myportfolio-lyart-rho.vercel.app/
 
 
 If anyone intrested developer are there just contact with email {email : manojc6363530865@gmail.com}
-
-thank you 
