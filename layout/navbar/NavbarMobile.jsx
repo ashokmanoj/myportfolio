@@ -23,7 +23,7 @@ const NavbarMobile = ({ setShowMenu, setThemeFun, theme, showMenu }) => {
     {
       name: "Contact",
       icon: <MdContactMail className="text-2xl" />,
-      link: "#contact",
+      link: "#SendMail",
     },
     {
       name: "Theme",
