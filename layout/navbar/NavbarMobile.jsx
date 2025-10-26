@@ -1,60 +1,100 @@
-import React from "react";
-import { DiTechcrunch } from "react-icons/di";
+import React, { useState, useEffect } from "react";
+import { GiHamburgerMenu } from "react-icons/gi";
+import { AiFillHome } from "react-icons/ai";
+import { MdContactMail } from "react-icons/md";
 import { BsFillLightningChargeFill } from "react-icons/bs";
 import { TbBulbFilled } from "react-icons/tb";
-import { GiHamburgerMenu } from "react-icons/gi";
-
-import { NavbarMenu } from "./NavbarItems";
 
 const NavbarMobile = ({ setShowMenu, setThemeFun, theme, showMenu }) => {
+  const [activeTab, setActiveTab] = useState("Home");
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  const tabs = [
+    {
+      name: "Menu",
+      icon: <GiHamburgerMenu className="text-2xl" />,
+      action: () => setShowMenu(!showMenu),
+    },
+    {
+      name: "Home",
+      icon: <AiFillHome className="text-2xl" />,
+      link: "#home",
+    },
+    {
+      name: "Contact",
+      icon: <MdContactMail className="text-2xl" />,
+      link: "#contact",
+    },
+    {
+      name: "Theme",
+      icon:
+        theme === "dark" ? (
+          <TbBulbFilled className="text-2xl" />
+        ) : (
+          <BsFillLightningChargeFill className="text-2xl" />
+        ),
+      action: setThemeFun,
+    },
+  ];
+
+  // 🔍 Detect visible section
+  useEffect(() => {
+    const sections = document.querySelectorAll("section[id]");
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const id = entry.target.getAttribute("id");
+            if (id === "home") setActiveTab("Home");
+            if (id === "contact") setActiveTab("Contact");
+          }
+        });
+      },
+      { rootMargin: "-40% 0px -50% 0px" }
+    );
+
+    sections.forEach((section) => observer.observe(section));
+    return () => sections.forEach((section) => observer.unobserve(section));
+  }, []);
+
+  // 🎨 Adjust glass background on scroll
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 80);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <>
-      {/* 🔝 Fixed Top Logo Bar */}
-      <div className="fixed top-0 left-0 w-full px-5 py-3 bg-[#ffffffcc] dark:bg-[#000000cc] backdrop-blur-lg flex justify-between items-center shadow-md shadow-gray-300 dark:shadow-gray-800 md:hidden z-50">
-        {/* Logo */}
-        <p className="flex items-center gap-1 text-gray-700 dark:text-gray-300">
-          <span className="text-lg font-bold">MANOJ</span>
-          <DiTechcrunch className="text-xl text-[#c72c6c] dark:text-[#07d0e5]" />
-        </p>
-
-        {/* Menu Button */}
+    <div
+      className={`fixed bottom-0 left-0 w-full px-4 py-2 flex justify-around items-center md:hidden z-50 backdrop-blur-lg transition-all duration-500 ${
+        isScrolled
+          ? "bg-[#ffffff99] dark:bg-[#00000099] shadow-[0_-2px_8px_rgba(0,0,0,0.15)] dark:shadow-[0_-2px_8px_rgba(255,255,255,0.15)]"
+          : "bg-[#ffffffcc] dark:bg-[#000000cc] shadow-[0_-2px_6px_rgba(0,0,0,0.1)] dark:shadow-[0_-2px_6px_rgba(255,255,255,0.1)]"
+      }`}
+    >
+      {tabs.map((tab) => (
         <button
-          className="text-3xl text-gray-700 dark:text-gray-200"
-          onClick={() => setShowMenu(!showMenu)}
+          className={`flex flex-col items-center justify-center min-w-[60px] transition-transform ${
+            activeTab === tab.name
+              ? "text-[#c72c6c] dark:text-[#07d0e5] scale-110"
+              : "text-gray-600 dark:text-gray-300 hover:text-[#c72c6c] dark:hover:text-[#07d0e5]"
+          }`}
+          key={tab.name}
+          onClick={() => {
+            if (tab.action) tab.action();
+            if (tab.link)
+              document
+                .querySelector(tab.link)
+                ?.scrollIntoView({ behavior: "smooth" });
+          }}
         >
-          <GiHamburgerMenu />
+          {tab.icon}
+          <span className="text-xs mt-1 font-medium">{tab.name}</span>
         </button>
-      </div>
-
-      {/* 📱 Bottom Tab Bar */}
-      <div className="fixed bottom-0 left-0 w-full px-4 py-2 bg-[#ffffffcc] dark:bg-[#000000cc] backdrop-blur-lg flex justify-around items-center shadow-[0_-2px_8px_rgba(0,0,0,0.1)] dark:shadow-[0_-2px_8px_rgba(255,255,255,0.1)] md:hidden z-40">
-        <div className="flex overflow-x-auto no-scrollbar gap-4 justify-around w-full">
-          {NavbarMenu.map((item) => (
-            <a
-              className="flex flex-col items-center text-gray-600 dark:text-gray-300 hover:text-[#c72c6c] dark:hover:text-[#07d0e5] min-w-[60px]"
-              href={item.link}
-              key={item.name}
-            >
-              <span className="text-2xl">{item.icon}</span>
-              <span className="text-xs mt-1 font-medium">{item.name}</span>
-            </a>
-          ))}
-
-          {/* 🌙 Theme Toggle */}
-          <button
-            className="flex flex-col items-center text-[#c72c6c] dark:text-[#07d0e5] hover:scale-110 transition-transform min-w-[60px]"
-            onClick={setThemeFun}
-          >
-            {theme === "dark" ? (
-              <TbBulbFilled className="text-2xl" />
-            ) : (
-              <BsFillLightningChargeFill className="text-2xl" />
-            )}
-            <span className="text-xs mt-1">Theme</span>
-          </button>
-        </div>
-      </div>
-    </>
+      ))}
+    </div>
   );
 };
 

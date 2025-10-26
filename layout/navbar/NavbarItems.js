@@ -12,7 +12,7 @@ export const NavbarMenu = [
         link: "#techStack",
     },
     {
-        name: "Education",
+        name: "Education",  
         link: "#education",
     },
     {
@@ -26,5 +26,9 @@ export const NavbarMenu = [
     {
         name: "Certificates",
         link: "#certificates",
-    }
+    },
+    {
+        name: "Contact",
+        link: "#contact",
+    },
 ];
