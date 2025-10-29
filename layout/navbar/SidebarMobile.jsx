@@ -8,49 +8,66 @@ import { NavbarMenu } from "./NavbarItems";
 const MobileNavbar = ({ showMenu, setShowMenu }) => {
   return (
     <Fragment>
+      {/* 🔳 Dimmed overlay */}
       <div
-        className={`w-full h-screen bg-[rgba(255,255,255,0.3)] dark:bg-[rgba(0,0,0,0.3)] fixed ${
-          showMenu ? null : "hidden"
-        } top-0 left-0 z-10`}
-        onClick={() => setShowMenu(!showMenu)}
+        className={`fixed inset-0 z-40 backdrop-blur-[2px] transition-all duration-500 ${
+          showMenu
+            ? "bg-[rgba(0,0,0,0.4)] dark:bg-[rgba(255,255,255,0.1)] visible"
+            : "opacity-0 invisible"
+        }`}
+        onClick={() => setShowMenu(false)}
+      />
+
+      {/* 🧊 Sidebar container */}
+      <div
+        className={`fixed top-0 left-0 h-full w-[75%] max-w-[320px] z-50 transform transition-transform duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] ${
+          showMenu ? "translate-x-0" : "-translate-x-full"
+        }`}
       >
-        {/* Sidebar */}
-        <div
-          className={`w-[70%] h-screen bg-white dark:bg-black shadow-sm shadow-gray-600 dark:shadow-gray-300 ${
-            showMenu ? null : "translate-x-[-450px]"
-          } transition-all duration-1000`}
-        >
-          <div className='flex items-center justify-between gap-3 p-3 bg-gray-200 dark:bg-gray-800'>
-            {/* Name Logo */}
-            <div className='flex items-center gap-2'>
-              <div className='text-white w-8 h-8 bg-[#c72c6c] dark:bg-[#07d0e5] rounded-full flex justify-center items-center'>
-                S
+        <div className="h-full flex flex-col bg-[#ffffff33] dark:bg-[#00000033] backdrop-blur-2xl border-r border-gray-300/20 dark:border-gray-700/30 shadow-lg shadow-gray-400/10 dark:shadow-gray-900/50">
+          {/* Header */}
+          <div className="flex items-center justify-between p-4 border-b border-gray-300/30 dark:border-gray-700/40">
+            {/* Logo */}
+            <div className="flex items-center gap-2">
+              <div className="w-9 h-9 rounded-full bg-[#c72c6c] dark:bg-[#07d0e5] flex justify-center items-center text-white font-bold shadow-md">
+                M
               </div>
-              <p className='flex text-gray-400'>
-                <span className='text-lg font-bold'>MANOJ</span> <DiTechcrunch />
+              <p className="flex items-center text-gray-800 dark:text-gray-200 font-semibold text-lg tracking-wide">
+                MANOJ <DiTechcrunch className="ml-1 text-[#c72c6c] dark:text-[#07d0e5]" />
               </p>
             </div>
 
-            {/* Sidebar Close button */}
+            {/* Close button */}
             <button
-              className='text-3xl font-bold text-black dark:text-white'
-              onClick={() => setShowMenu(!showMenu)}
+              className="text-3xl text-gray-700 dark:text-gray-200 hover:text-[#c72c6c] dark:hover:text-[#07d0e5] transition-colors"
+              onClick={() => setShowMenu(false)}
             >
               <IoMdClose />
             </button>
           </div>
 
-          <div className='flex flex-col gap-2 p-2'>
-            {/* Navbar Links */}
-            {NavbarMenu.map((navbar) => (
+          {/* Menu Links */}
+          <nav className="flex flex-col gap-2 mt-3 px-4 overflow-y-auto">
+            {NavbarMenu.map((item) => (
               <Link
-                className='p-2 text-lg bg-gray-200 rounded hover:bg-gray-300 dark:bg-gray-600 dark:hover:bg-gray-700'
-                href={navbar.link}
-                key={navbar.name}
+                className="flex items-center justify-between p-3 text-base font-medium rounded-xl 
+                bg-white/30 dark:bg-black/20 
+                text-gray-800 dark:text-gray-200 
+                hover:bg-[#c72c6c]/20 dark:hover:bg-[#07d0e5]/20
+                hover:scale-[1.02] shadow-sm transition-all"
+                href={item.link}
+                key={item.name}
+                onClick={() => setShowMenu(false)}
               >
-                {navbar.name}
+                {item.name}
+                <span className="text-[#c72c6c] dark:text-[#07d0e5]">›</span>
               </Link>
             ))}
+          </nav>
+
+          {/* Footer */}
+          <div className="mt-auto p-4 border-t border-gray-300/30 dark:border-gray-700/40 text-sm text-center text-gray-500 dark:text-gray-400">
+            © {new Date().getFullYear()} MANOJ. All rights reserved.
           </div>
         </div>
       </div>
