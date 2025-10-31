@@ -9,45 +9,61 @@ import AnimatedButton from "@/components/buttons/AnimatedButton";
 const LatestBlogs = () => {
   return (
     <Fragment>
-      <section id='blogs'>
-        <div
-          className={"py-8 pt-4 shadow-zinc-300 dark:shadow-zinc-700 shadow-sm"}
-        >
-          <h3 className='text-3xl font-bold text-centersk pb-8 flex justify-center items-center gap-3'>
-            <span className='mr-3'>
-              <BsPenFill />
-            </span>
-            Blogs
-          </h3>
-          <div className='grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4 rounded-md mx-6'>
-            {BlogsData.slice(-4)
-              .reverse()
-              .map((blog) => (
-                <div key={blog.name}>
-                  <Link href={`/blogs/${blog.linkName}`}>
-                    <div className='h-fit dark:bg-gray-900 rounded-md border border-gray-400 border-solid'>
-                      <Image
-                        alt='img not found'
-                        className='rounded-t-md'
-                        height={250}
-                        src={blog.imageUrl}
-                        style={{ width: "100%" }}
-                        width={400}
-                      />
-                      <div className='px-1 py-2  border-t border-solid border-gray-600 dark:border-white'>
-                        <div className='blogLink'>{blog.name}</div>
-                        <p className='dark:text-white text-xs py-1 text-gray-600 text-center'>
-                          {blog.date}
-                        </p>
-                      </div>
-                    </div>
-                  </Link>
+      <section
+        className="py-20 px-6 sm:px-10 md:px-20 lg:px-32 transition-colors duration-700
+                   bg-gradient-to-b from-zinc-100/70 via-white/60 to-zinc-100/70 
+                   dark:from-zinc-900/80 dark:via-zinc-800/70 dark:to-zinc-900/80 
+                   backdrop-blur-2xl"
+        id="blogs"
+      >
+        {/* Title */}
+        <h3 className="flex justify-center items-center gap-3 text-4xl font-bold text-center mb-12">
+          <BsPenFill className="text-[#c72c6c] dark:text-[#07d0e5]" />
+          <span className="text-[#c72c6c] dark:text-[#07d0e5]">Blogs</span>
+        </h3>
+
+        {/* Blog Cards Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 justify-items-center">
+          {BlogsData.slice(-4)
+            .reverse()
+            .map((blog) => (
+              <Link
+                className="w-full sm:w-[260px] md:w-[280px] group"
+                href={`/blogs/${blog.linkName}`}
+                key={blog.name}
+              >
+                <div
+                  className="rounded-xl overflow-hidden border border-white/20 dark:border-zinc-700 
+                             bg-white/60 dark:bg-white/10 backdrop-blur-lg 
+                             shadow-md hover:shadow-xl transition-all duration-500 transform hover:-translate-y-2"
+                >
+                  {/* Blog Image */}
+                  <div className="relative h-48 w-full overflow-hidden">
+                    <Image
+                      alt={blog.name}
+                      className="object-cover transition-transform duration-500 group-hover:scale-105"
+                      fill
+                      src={blog.imageUrl}
+                    />
+                  </div>
+
+                  {/* Blog Info */}
+                  <div className="p-4 border-t border-white/20 dark:border-zinc-700 text-center">
+                    <h4 className="text-lg font-semibold text-gray-800 dark:text-gray-100">
+                      {blog.name}
+                    </h4>
+                    <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">
+                      {blog.date}
+                    </p>
+                  </div>
                 </div>
-              ))}
-          </div>
-          <div className='ml-auto w-fit  mx-6 mt-8'>
-            <AnimatedButton />
-          </div>
+              </Link>
+            ))}
+        </div>
+
+        {/* Animated Button */}
+        <div className="flex justify-center mt-12">
+          <AnimatedButton />
         </div>
       </section>
     </Fragment>
