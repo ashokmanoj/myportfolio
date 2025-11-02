@@ -67,7 +67,6 @@ const SendMail = () => {
 
   return (
     <section
-      id="getInTouch"
       className="
         max-w-2xl mx-auto my-10 md:my-20 px-4 sm:px-6 lg:px-8 py-12
         rounded-2xl shadow-lg backdrop-blur-2xl
@@ -77,6 +76,7 @@ const SendMail = () => {
         dark:from-zinc-900/90 dark:via-zinc-800/80 dark:to-zinc-900/90
         border border-gray-300/40 dark:border-zinc-700/50
       "
+      id="getInTouch"
     >
       <h3 className="text-2xl sm:text-3xl font-bold text-center mb-6 flex justify-center items-center gap-3">
         <FiMessageCircle className="text-[#07d0e5] text-4xl" /> Drop A Message
@@ -104,11 +104,6 @@ const SendMail = () => {
       <form className="space-y-4" onSubmit={sendMessage}>
         {["name", "email", "subject"].map((field) => (
           <input
-            key={field}
-            name={field}
-            value={formData[field]}
-            onChange={collectData}
-            placeholder={`Your ${field.charAt(0).toUpperCase() + field.slice(1)}`}
             className="
               w-full p-3 sm:p-4 rounded-lg border
               bg-white/80 dark:bg-zinc-800/80
@@ -118,15 +113,15 @@ const SendMail = () => {
               focus:outline-none focus:ring-2 focus:ring-[#07d0e5]/60
               transition-all duration-300
             "
+            key={field}
+            name={field}
+            onChange={collectData}
+            placeholder={`Your ${field.charAt(0).toUpperCase() + field.slice(1)}`}
+            value={formData[field]}
           />
         ))}
 
         <textarea
-          name="message"
-          value={formData.message}
-          onChange={collectData}
-          placeholder="Write your message..."
-          rows="5"
           className="
             w-full p-3 sm:p-4 rounded-lg border
             bg-white/80 dark:bg-zinc-800/80
@@ -136,14 +131,15 @@ const SendMail = () => {
             focus:outline-none focus:ring-2 focus:ring-[#07d0e5]/60
             transition-all duration-300
           "
+          name="message"
+          onChange={collectData}
+          placeholder="Write your message..."
+          rows="5"
+          value={formData.message}
         />
 
         <div className="flex flex-col sm:flex-row justify-center gap-3 pt-6">
           <motion.button
-            type="submit"
-            disabled={sending}
-            whileHover={{ scale: 1.05, boxShadow: "0 0 15px #07d0e5" }}
-            whileTap={{ scale: 0.98 }}
             className="
               w-full sm:w-auto px-6 py-2.5 font-semibold rounded-lg
               bg-[#07d0e5] hover:bg-[#05b5c9]
@@ -151,13 +147,15 @@ const SendMail = () => {
               text-white disabled:opacity-60
               shadow-md hover:shadow-[#07d0e5]/50
             "
+            disabled={sending}
+            type="submit"
+            whileHover={{ scale: 1.05, boxShadow: "0 0 15px #07d0e5" }}
+            whileTap={{ scale: 0.98 }}
           >
             {sending ? "Sending..." : "Send Message"}
           </motion.button>
 
           <button
-            type="button"
-            onClick={handleCancel}
             className="
               w-full sm:w-auto px-6 py-2.5 font-semibold rounded-lg
               bg-gray-300/70 dark:bg-zinc-700/70
@@ -165,6 +163,8 @@ const SendMail = () => {
               hover:bg-gray-400 dark:hover:bg-zinc-600
               transition-all duration-300
             "
+            onClick={handleCancel}
+            type="button"
           >
             Cancel
           </button>
