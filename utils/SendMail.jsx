@@ -31,7 +31,8 @@ const SendMail = () => {
 
     const { name, email, subject, message } = formData;
 
-    if (!validateEmail(email)) return setError("Please enter a valid email address");
+    if (!validateEmail(email))
+      return setError("Please enter a valid email address");
     if (!name) return setError("Please enter your name");
     if (!subject) return setError("Please enter your subject");
     if (!message) return setError("Please enter your message");
@@ -116,7 +117,9 @@ const SendMail = () => {
             key={field}
             name={field}
             onChange={collectData}
-            placeholder={`Your ${field.charAt(0).toUpperCase() + field.slice(1)}`}
+            placeholder={`Your ${
+              field.charAt(0).toUpperCase() + field.slice(1)
+            }`}
             value={formData[field]}
           />
         ))}
