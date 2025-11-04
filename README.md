@@ -1,41 +1,74 @@
-## ✨ Features
+# 👋 Hi, I’m Manoj — Full Stack Developer | UI/UX Enthusiast | Frontend Developer 🚀
 
-⚡ Built with Next.js
+Welcome to my **personal portfolio website**, built with ❤️ using **Next.js, Tailwind CSS, Framer Motion, and EmailJS**.  
+This portfolio reflects not just my **skills and experience**, but also my passion for **creating visually rich, performant, and meaningful user experiences**.
 
-📱 Fully responsive design
+---
 
-🎨 Styled with Tailwind CSS (or your styling choice)
+## 🌐 Live Portfolio
 
-🌙 Dark/Light mode support
+🔗 **Visit my portfolio:** [https://myportfolio-lyart-rho.vercel.app/]
+📧 **Let’s connect:** [manojha346@gmail.com]  
+💼 **LinkedIn:** [https://linkedin.com/in/manoj-manu]
+🐙 **GitHub:** [https://github.com/your-github]
 
-📂 Projects section with live links & GitHub repos
+---
 
-📝 Blog/Articles section (optional)
+## ✨ Overview
 
-📧 Contact form (Email/Forms integration)
+This portfolio serves as my **digital identity** — it showcases:
+- 🎯 My **technical projects** with live previews and GitHub links  
+- 💼 My **education** and **professional experience**
+- 🧑‍💻 An elegant, responsive design with **light/dark mode support**
+- 📫 A working **contact form** integrated with **EmailJS**
+- 🪞 Smooth **animations and transitions** built using Framer Motion  
+- 🌗 Aesthetic **glassmorphism** & **glossy gradients** that adapt to theme mode
 
-## 🛠️ Tech Stack
+---
 
-Frontend: Next.js, React
+## 🧩 Tech Stack
 
-Styling: Tailwind CSS / Styled Components / CSS Modules
+| Frontend | Styling | Animation | Deployment | Integration |
+|-----------|----------|------------|-------------|--------------|
+| Next.js 14 | Tailwind CSS | Framer Motion | Vercel | EmailJS |
+| React | ShadCN/UI | Lucide Icons | GitHub Pages | — |
 
-Deployment: Vercel / Netlify
+---
 
-Other Tools: ESLint, Prettier.
+## 🖥️ Features
 
-## Apps
+✅ **Responsive Design** — Looks stunning on desktop, tablet, and mobile.  
+✅ **Dark/Light Mode** — Automatically adjusts for user preference.  
+✅ **Project Showcase** — Interactive cards with live demo and source code.  
+✅ **Contact Form** — Direct email functionality with form validation.  
+✅ **SEO Optimized** — Meta tags, OpenGraph data, and responsive images.  
+✅ **Performance Optimized** — Lazy-loaded images, smooth scroll animations.  
 
-1) Tic-tok_toi
+---
 
-2) Quiz App
+## 📸 Sneak Peek
 
-3) Hindi Translater
+| Light Mode | Dark Mode |
+|-------------|------------|
+| ![Light Screenshot](./screenshots/light-mode.png) | ![Dark Screenshot](./screenshots/dark-mode.png) |
 
+> *(You can add screenshots of your sections — Hero, Projects, Contact, etc.)*
 
+---
 
+## ⚙️ Installation & Setup
 
-MyPortfolio link : https://myportfolio-lyart-rho.vercel.app/
+To run this portfolio locally:
 
+```bash
+# Clone this repo
+git clone https://github.com/your-github/your-portfolio.git
 
-If anyone intrested developer are there just contact with email {email : manojc6363530865@gmail.com}
+# Navigate into project directory
+cd your-portfolio
+
+# Install dependencies
+npm install
+
+# Run the development server
+npm run dev
