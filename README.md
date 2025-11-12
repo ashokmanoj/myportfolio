@@ -62,7 +62,7 @@ To run this portfolio locally:
 
 ```bash
 # Clone this repo
-git clone https://github.com/your-github/your-portfolio.git
+git clone https://github.com/ashokmanoj/myportfolio.git
 
 # Navigate into project directory
 cd your-portfolio
