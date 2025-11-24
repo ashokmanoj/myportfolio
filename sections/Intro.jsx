@@ -85,7 +85,7 @@ const Intro = () => {
             </p>
 
             <p className="mt-3 text-sm sm:text-base md:text-lg font-medium text-gray-900 dark:text-gray-100 max-w-[90%] md:max-w-none">
-              Result-oriented Front-end developer with 2+ years of experience
+              Result-oriented Front-end developer with 1+ years of experience
               building responsive, scalable, and performant web applications
               using <strong>React.js</strong>, <strong>Next.js</strong>, and{" "}
               <strong>Tailwind CSS</strong>.
