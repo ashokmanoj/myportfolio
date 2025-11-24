@@ -84,9 +84,9 @@ const About = () => {
           {/* Info Cards */}
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-6">
             {[
-              { title: "Location", value: "Hassan, Karnataka", icon: <ImLocation /> },
+              { title: "Location", value: "Bangalore, Karnataka", icon: <ImLocation /> },
               { title: "Age", value: "23", icon: <IoPerson /> },
-              { title: "Experience", value: "2 Years", icon: <FaBlackTie /> },
+              { title: "Experience", value: "1 Year", icon: <FaBlackTie /> },
               { title: "Projects", value: "3+", icon: <BsMenuAppFill /> },
             ].map((item, index) => (
               <div
@@ -111,7 +111,7 @@ const About = () => {
           {/* Description */}
           <p className="mt-8 text-base sm:text-lg leading-relaxed text-gray-700 dark:text-gray-300 text-justify md:text-left">
             Passionate and results-driven ReactJS developer with a strong foundation
-            in MERN Stack and Next.js. I specialize in crafting seamless, responsive,
+            in React.js and Next.js. I specialize in crafting seamless, responsive,
             and engaging user interfaces that combine design and performance. 
             I’m deeply motivated to contribute innovative ideas, solve complex challenges,
             and continuously evolve in the world of modern web development.
