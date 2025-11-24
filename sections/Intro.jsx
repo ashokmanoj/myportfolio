@@ -100,7 +100,7 @@ const Intro = () => {
               </Link>
               <Link
                 className="px-3 py-1.5 text-base font-semibold border border-red-400 rounded-lg text-gray-900 dark:text-white hover:bg-red-500 transition"
-                href="https://drive.google.com/file/d/1mh9pvt8hL9GLbPWWC7cKdlR0PAsl1r5Y/view?usp=sharing"
+                href="#about"
                 target="_blank"
               >
                 Download CV
